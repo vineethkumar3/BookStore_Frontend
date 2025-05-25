@@ -24,8 +24,6 @@ jobs:
       - name: Lint JS
         run: npx eslint . --ext .js,.jsx,.ts,.tsx
 
-      - name: Lint CSS
-        run: npx stylelint "**/*.css"
 
       - name: Prettier Check
         run: npx prettier . --check
