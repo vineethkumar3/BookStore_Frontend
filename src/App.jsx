@@ -1,9 +1,9 @@
-import Login from './pages/Login';
-import Home from './pages/Home';
+import Login from './Pages/Login';
+import Home from './Pages/Home';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Cart from './pages/Cart';
-import Checkout from './pages/Checkout';
-import Register from './pages/Register';
+import Cart from './Pages/Cart';
+import Checkout from './Pages/Checkout';
+import Register from './Pages/Register';
 
 function App() {
   return (
