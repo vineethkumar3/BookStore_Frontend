@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { useCart } from '../context/CartContext';
+import { useCart } from 'CartContext';
 import booksData from '../data/books.json';
 import './Cart.css';
 
