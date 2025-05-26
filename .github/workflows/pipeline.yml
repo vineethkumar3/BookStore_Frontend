@@ -2,7 +2,8 @@ name: React CI Pipeline
 
 on:
   pull_request:
-    branches: feature/my-updates
+    branches: 
+      - main
 
 jobs:
   build:
