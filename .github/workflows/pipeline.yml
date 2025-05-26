@@ -5,47 +5,47 @@ on:
     branches: 
       - main
   workflow_dispatch: 
+
 jobs:
-  Lint:
-   runs-on: ubuntu-latest
-   name: Linting the code
-   steps:
-    - name: Printing
-      run: | 
-          echo "Printing"
-  build:
+  lint:
+    name: Linting the code
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Code
+      - name: 📦 Checkout Code
         uses: actions/checkout@v3
 
-      - name: Install Node.js
+      - name: 🧹 Print Lint Step (replace with actual linting)
+        run: echo "Running lint..."
+
+  build:
+    name: Build React App
+    runs-on: ubuntu-latest
+    needs: lint  # 👈 This makes build run only after lint passes
+
+    steps:
+      - name: 📦 Checkout Code
+        uses: actions/checkout@v3
+
+      - name: ⚙️ Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18' # or any version you need
+          node-version: '18'
 
-      - name: Install npm (already comes with Node.js)
+      - name: 📥 Check npm
         run: npm -v
 
-      - name: Install React & React-DOM (if not in package.json)
-        run: |
-          npm install react react-dom
+      - name: 🔧 Install React & React-DOM (if needed)
+        run: npm install react react-dom
 
-      - name: Install project dependencies
+      - name: 📦 Install Dependencies
         run: npm install
 
-      - name: Run Build
+      - name: 🛠️ Run Build
         run: npm run build
 
-      - name: Upload Build Artifact
-        uses: actions/upload-artifact@v4.6.2
+      - name: ☁️ Upload Build Artifact
+        uses: actions/upload-artifact@v4
         with:
-           name: react-build
-           path: |
-               dist/
-
-
-
-
-
+          name: react-build
+          path: dist/
