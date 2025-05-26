@@ -81,11 +81,13 @@ jobs:
       - name: 📥 Install Wrangler
         run: npm install -g wrangler
 
-      - name: 🔐 Verify Cloudflare Token
+      - name: 🧪  Echo Environment Variables
         run: |
-          curl -X GET "https://api.cloudflare.com/client/v4/user/tokens/verify" \
-             -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN"
+          echo "CF_PROJECT_NAME = $CF_PROJECT_NAME"
+          echo "CLOUDFLARE_API_TOKEN = ${#CLOUDFLARE_API_TOKEN} characters"
+          echo "HOME = $HOME"
         env:
+          CF_PROJECT_NAME: ${{ secrets.CF_PROJECT_NAME }}
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
 
     
