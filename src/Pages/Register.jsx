@@ -23,14 +23,15 @@ const Register = () => {
     setError('');
 
     try {
-      const formBody = new URLSearchParams(formData).toString();
+      const jsonBody = JSON.stringify(formData);
 
-      const res = await fetch('http://127.0.0.1:5000/register', {
+      const res = await fetch('https://bookstore-backend-owc9.onrender.com/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: formBody,
+        credentials: 'include',
+        body: jsonBody,
       });
 
       if (res.redirected || res.status === 200) {
