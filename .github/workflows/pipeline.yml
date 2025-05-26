@@ -80,7 +80,15 @@ jobs:
 
       - name: 📥 Install Wrangler
         run: npm install -g wrangler
-        
+
+      - name: 🔐 Verify Cloudflare Token
+        run: |
+          curl -X GET "https://api.cloudflare.com/client/v4/user/tokens/verify" \
+             -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN"
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+
+    
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3.1.0
         with:
