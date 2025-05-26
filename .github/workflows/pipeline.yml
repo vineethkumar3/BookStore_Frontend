@@ -80,9 +80,21 @@ jobs:
 
       - name: 📥 Install Wrangler
         run: npm install -g wrangler
+      - name: 🔐 Verify Cloudflare API Token
+        run: |
+            echo "Verifying Cloudflare API token..."
+            RESPONSE=$(curl -s -o cf_verify.json -w "%{http_code}" \
+              -X GET "https://api.cloudflare.com/client/v4/user/tokens/verify" \
+              -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN")
 
-      - name: 🚀 Deploy to Cloudflare Pages
-        run: wrangler pages deploy dist --project-name=${{ secrets.CF_PROJECT_NAME }}
+            cat cf_verify.json
+
+            if [ "$RESPONSE" -ne 200 ]; then
+              echo "❌ Invalid or unauthorized Cloudflare API token!"
+                exit 1
+            else
+              echo "✅ Token is valid and authorized!"
+            fi
         env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
 
