@@ -15,8 +15,8 @@ jobs:
       - name: 📦 Checkout Code
         uses: actions/checkout@v3
 
-      - name: 🧹 Print Lint Step (replace with actual linting)
-        run: echo "Running lint..."
+      - name: 🧹 Linting the code
+        run: npm run lint
 
   build:
     name: Build React App
