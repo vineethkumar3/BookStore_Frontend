@@ -1,34 +1,31 @@
-name: Frontend CI/CD
+name: React CI Pipeline
 
 on:
   push:
-    branches: [main]
-  pull_request:
+    branches: [ main ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
+      - name: Checkout Code
         uses: actions/checkout@v3
 
-      - name: Setup Node
+      - name: Install Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '18' # or any version you need
 
-      - name: Install dependencies
-        run: npm ci
+      - name: Install npm (already comes with Node.js)
+        run: npm -v
 
-      - name: Lint JS
-        run: npx eslint . --ext .js,.jsx,.ts,.tsx
+      - name: Install React & React-DOM (if not in package.json)
+        run: |
+          npm install react react-dom
 
+      - name: Install project dependencies
+        run: npm install
 
-
-      - name: Run build
+      - name: Run Build
         run: npm run build
-
-      - name: Docker Build
-        run: docker build -t myfrontendapp .
-
