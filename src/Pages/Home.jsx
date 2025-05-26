@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import booksData from '../data/books.json';
-import { useCart } from 'CartContext';
+import { useCart } from '../context/CartContext';
 import './Home.css';
 
 const Home = () => {
