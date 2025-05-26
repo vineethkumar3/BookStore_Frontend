@@ -14,7 +14,21 @@ jobs:
     steps:
       - name: 📦 Checkout Code
         uses: actions/checkout@v3
+        
+      - name: ⚙️ Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
 
+      - name: 📥 Check npm
+        run: npm -v
+
+      - name: 🔧 Install React & React-DOM (if needed)
+        run: npm install react react-dom
+
+      - name: 📦 Install Dependencies
+        run: npm install
+        
       - name: 🧹 Linting the code
         run: npm run lint
 
@@ -31,15 +45,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '18'
-
-      - name: 📥 Check npm
-        run: npm -v
-
-      - name: 🔧 Install React & React-DOM (if needed)
-        run: npm install react react-dom
-
-      - name: 📦 Install Dependencies
-        run: npm install
 
       - name: 🛠️ Run Build
         run: npm run build
