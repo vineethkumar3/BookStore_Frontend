@@ -4,8 +4,14 @@ on:
   pull_request:
     branches: 
       - main
-
 jobs:
+  Lint:
+   runs-on: ubuntu-latest
+   name: Linting the code
+   steps:
+    - name: Printing
+      run: | 
+          echo "Printing"
   build:
     runs-on: ubuntu-latest
 
