@@ -84,5 +84,5 @@ jobs:
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3.1.0
         with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          apiToken: ${{ secrets.CF_API_TOKEN }}
           command: pages deploy dist --project-name=${{ secrets.CF_PROJECT_NAME }}
