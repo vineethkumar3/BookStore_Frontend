@@ -84,11 +84,11 @@ jobs:
       - name: 🧪  Echo Environment Variables
         run: |
           echo "CF_PROJECT_NAME = $CF_PROJECT_NAME"
-          echo "CLOUDFLARE_API_TOKEN = ${#CLOUDFLARE_API_TOKEN} characters"
+          echo "CF_API_TOKEN = ${#CLOUDFLARE_API_TOKEN} characters"
           echo "HOME = $HOME"
         env:
           CF_PROJECT_NAME: ${{ secrets.CF_PROJECT_NAME }}
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
 
     
       - name: Deploy to Cloudflare Pages
