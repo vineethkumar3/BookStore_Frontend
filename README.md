@@ -1,7 +1,7 @@
 
 # BookStore Frontend
 
-A modern and responsive frontend application for an online bookstore, built using React and Vite. This project provides users with an intuitive interface to browse, search, and purchase books.([GitHub][1])
+A modern and responsive frontend application for an online bookstore, built using React and Vite. This project provides users with an intuitive interface to browse, search, and purchase books.
 
 ## Features
 
@@ -16,7 +16,7 @@ A modern and responsive frontend application for an online bookstore, built usin
 * **Frontend**: React, Vite
 * **Styling**: CSS Modules / Styled Components (based on project implementation)
 * **Linting**: ESLint
-* **Containerization**: Docker([GitHub][1], [GitHub][2])
+* **Containerization**: Docker
 
 ## Getting Started
 
@@ -169,11 +169,3 @@ Contributions are welcome! Please fork the repository and submit a pull request 
 ## License
 
 This project is licensed under the [MIT License](LICENSE).([GitHub][3])
-
----
-
-Feel free to customize this `README.md` further to align with any additional features or specific configurations present in your project.
-
-[1]: https://github.com/ganeshdwivedi/bookStore-frontend?utm_source=chatgpt.com "ganeshdwivedi/bookStore-frontend - GitHub"
-[2]: https://github.com/AOSP-NIT-Surat/Bookstore-Frontend-web?utm_source=chatgpt.com "GitHub - AOSP-NIT-Surat/Bookstore-Frontend-web: A minimal website ..."
-[3]: https://github.com/manascb1344/Book-Store?utm_source=chatgpt.com "GitHub - manascb1344/Book-Store: This repository houses the code for a ..."
