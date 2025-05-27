@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Register.css';
+require('dotenv').config();
+
+const Host_Add = process.env.HOST_ADD;
 
 const Register = () => {
   const navigate = useNavigate();
@@ -25,7 +28,7 @@ const Register = () => {
     try {
       const jsonBody = JSON.stringify(formData);
 
-      const res = await fetch('https://bookstore-backend-owc9.onrender.com/register', {
+      const res = await fetch(Host_Add+'/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

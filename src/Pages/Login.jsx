@@ -1,6 +1,10 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Login.css';
+require('dotenv').config();
+
+const Host_Add = process.env.HOST_ADD;
+
 
 const Login = () => {
   const navigate = useNavigate();
@@ -13,7 +17,7 @@ const handleLogin = async (e) => {
   setError('');
 
   try {
-    const res = await fetch('https://bookstore-backend-owc9.onrender.com/login', {
+    const res = await fetch(Host_Add+'/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include',

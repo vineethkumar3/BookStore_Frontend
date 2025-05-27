@@ -3,6 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import booksData from '../data/books.json';
 import { useCart } from '../context/CartContext';
 import './Home.css';
+require('dotenv').config();
+
+const Host_Add = process.env.HOST_ADD;
 
 const Home = () => {
   const navigate = useNavigate();
@@ -57,7 +60,7 @@ const updateCart = async (bookId, quantity) => {
   }
   try {
       console.log('update cart function was called')
-    await fetch('http://127.0.0.1:5000/cart/update', {
+    await fetch(Host_Add+'/cart/update', {
       method: 'POST',
       headers: {
     'Content-Type': 'application/json',
