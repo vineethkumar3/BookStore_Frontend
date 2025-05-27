@@ -1,8 +1,3 @@
-[![GitHub - LucBecker/bookstore-frontend](https://tse1.mm.bing.net/th?id=OIP.zFQaMK-MXFp43g2LgFIfWAHaDm\&pid=Api)](https://github.com/LucBecker/bookstore-frontend)
-
-Certainly! Based on the information available from the GitHub repository [vineethkumar3/BookStore\_Frontend](https://github.com/vineethkumar3/BookStore_Frontend), here's a comprehensive `README.md` file tailored for the project:
-
----
 
 # BookStore Frontend
 
