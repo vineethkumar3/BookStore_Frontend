@@ -3,9 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import booksData from '../data/books.json';
 import { useCart } from '../context/CartContext';
 import './Home.css';
-require('dotenv').config();
-
-const Host_Add = process.env.HOST_ADD;
+const Host_Add = import.meta.env.HOST_ADD;
 
 const Home = () => {
   const navigate = useNavigate();

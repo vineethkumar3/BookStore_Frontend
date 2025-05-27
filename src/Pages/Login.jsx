@@ -1,11 +1,9 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Login.css';
-require('dotenv').config();
-
-const Host_Add = process.env.HOST_ADD;
 
 
+const Host_Add = import.meta.env.HOST_ADD;
 const Login = () => {
   const navigate = useNavigate();
   const [username, setUsername] = useState('');

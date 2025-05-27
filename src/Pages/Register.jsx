@@ -1,9 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Register.css';
-require('dotenv').config();
-
-const Host_Add = process.env.HOST_ADD;
+const Host_Add = import.meta.env.HOST_ADD;
 
 const Register = () => {
   const navigate = useNavigate();
