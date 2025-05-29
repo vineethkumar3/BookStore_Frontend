@@ -2,40 +2,40 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Login.css';
 
-
 const Host_Add = import.meta.env.HOST_ADD;
+console.log("Host_Add ENV:", Host_Add);
+
 const Login = () => {
   const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
-const handleLogin = async (e) => {
-  e.preventDefault();
-  setError('');
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    setError('');
 
-  try {
-    const res = await fetch(Host_Add+'/login', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      credentials: 'include',
-      body: JSON.stringify({ username, password }),
-    });
+    try {
+      const res = await fetch(Host_Add + '/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: JSON.stringify({ username, password }),
+      });
 
-    const data = await res.json();
+      const data = await res.json();
 
-    if (res.ok && data.success) {
+      if (res.ok && data.success) {
         localStorage.setItem('token', data.token);
-      navigate('/home');  // ✅ Redirect without alert
-    } else {
-      setError(data.message || 'Invalid credentials');
+        navigate('/home');
+      } else {
+        setError(data.message || 'Invalid credentials');
+      }
+    } catch (err) {
+      setError('Server error. Please try again later.');
+      console.error(err);
     }
-  } catch (err) {
-    setError('Server error. Please try again later.');
-    console.error(err);
-  }
-};
-
+  };
 
   return (
     <div className="login-page">
@@ -58,9 +58,11 @@ const handleLogin = async (e) => {
           />
           <button type="submit">Login</button>
         </form>
-        {error && <p style={{ color: 'red' }}>{error}</p>}
-        <p><a onClick={() => navigate('/register')}>Create new account</a></p>
-        <p><a href="#">Login with Google</a></p>
+        {error && <p className="error-text">{error}</p>}
+        <p className="link-text" onClick={() => navigate('/register')}>
+          Create new account
+        </p>
+        <p className="link-text disabled">Login with Google (coming soon)</p>
       </div>
     </div>
   );

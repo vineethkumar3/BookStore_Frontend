@@ -1,46 +1,92 @@
 .login-page {
-  background: lightblue;
-  height: 100vh;
-  width: 100vw; /* Make sure it takes full width */
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0;
-  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  animation: backgroundSlide 25s infinite;
+  transition: background-image 1s ease-in-out;
+}
+
+
+@keyframes backgroundSlide {
+  0%    { background-image: url('/assets/bg1.jpg'); }
+  20%   { background-image: url('/assets/bg2.jpg'); }
+  40%   { background-image: url('/assets/bg3.jpg'); }
+  60%   { background-image: url('/assets/bg4.jpg'); }
+  80%   { background-image: url('/assets/bg5.jpg'); }
+  100%  { background-image: url('/assets/bg1.jpg'); }
 }
 
 .login-box {
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
   padding: 40px;
-  border-radius: 10px;
-  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
-  width: 300px;
+  border-radius: 16px;
+  width: 320px;
   text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  position: relative;
 }
-
-
 .login-box h2 {
   margin-bottom: 20px;
+  color: #ffffff;
 }
 
 .login-box input {
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   margin: 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  border: none;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #000;
+}
+
+.login-box input:focus {
+  outline: none;
+  border: 1px solid #4facfe;
 }
 
 .login-box button {
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   background-color: #4facfe;
   color: white;
+  font-weight: bold;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
+  transition: transform 0.2s ease;
 }
 
 .login-box button:hover {
+  transform: scale(1.03);
   background-color: #00c6ff;
+}
+
+.link-text {
+  color: #e0e0e0;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.link-text:hover {
+  text-decoration: underline;
+  color: white;
+}
+
+.error-text {
+  color: #ff6b6b;
+  font-size: 14px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
